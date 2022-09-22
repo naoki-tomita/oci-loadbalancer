@@ -5,7 +5,7 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
-      - 8080:8080
+      - 80:80
   nzxt-docs:
     image: ghcr.io/naoki-tomita/nzxt-docs:latest
     environment:
