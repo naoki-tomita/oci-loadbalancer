@@ -15,7 +15,7 @@ services:
     command: "/bin/sh -c 'while :; do sleep 36h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     restart: always
   certbot:
-    image: certbot/certbot:amd64-latest
+    image: certbot/certbot:arm64v8-latest
     volumes:
       - ./usr/share/nginx/html:/usr/share/nginx/html
       - ./etc/letsencrypt:/etc/letsencrypt
