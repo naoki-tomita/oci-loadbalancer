@@ -21,7 +21,7 @@ services:
       - ./etc/letsencrypt:/etc/letsencrypt
       - ./var/lib/letsencrypt:/var/lib/letsencrypt
       - ./log_letsencrypt:/var/log/letsencrypt
-    command: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     restart: always
   nzxt-docs:
     image: ghcr.io/naoki-tomita/nzxt-docs:latest
