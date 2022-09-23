@@ -3,6 +3,7 @@ services:
   load-balancer:
     image: nginx:latest
     volumes:
+      - ./usr/share/nginx/html:/usr/share/nginx/html
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./etc/letsencrypt:/etc/letsencrypt
       - ./var/log/nginx:/var/log/nginx
@@ -16,7 +17,7 @@ services:
   certbot:
     image: certbot/certbot:amd64-latest
     volumes:
-      - ./html:/usr/share/nginx/html
+      - ./usr/share/nginx/html:/usr/share/nginx/html
       - ./etc/letsencrypt:/etc/letsencrypt
       - ./var/lib/letsencrypt:/var/lib/letsencrypt
       - ./log_letsencrypt:/var/log/letsencrypt
